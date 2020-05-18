@@ -8,8 +8,8 @@
   <title>php-snack 1</title>
 </head>
 <body>
+  <!-- SNACK 1 - START -->
   <?php
-
   $matches=[
     [
       'home' => 'Olimpia Milano',
@@ -38,6 +38,8 @@
   ]
   ?>
 
+  <h1>Snack #1</h1>
+
   <ul>
     <?php for($i=0;$i < count($matches);$i++) { ?>
       <li>
@@ -46,6 +48,22 @@
       </li>
     <?php } ?>
   </ul>
+  <!-- SNACK 1 - END -->
+<hr>
+
+<!-- SNACK 2 - START -->
+<h1>Snack #2</h1>
+<?php
+$data = $_GET;
+
+if(empty($data['mail'])){
+  echo '<div> ko </div>';
+} elseif(strpos ($data['mail'], '@') === false) {
+  echo '<div> ok </div>';
+} else {
+  echo '<div> mail ok </div>';
+}
+?>
 
   <script src='dist/js/main.js'>
   </script>
