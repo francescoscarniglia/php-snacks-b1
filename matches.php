@@ -57,9 +57,11 @@
 $data = $_GET;
 
 if(empty($data['mail'])){
-  echo '<div> ko </div>';
-} elseif(strpos ($data['mail'], '@') === false) {
-  echo '<div> ok </div>';
+  echo '<div> Il campo mail è vuoto </div>';
+} elseif(strlen($data['mail']) < 3) {
+  echo '<div> C\'è almeno un errore nel tuo indirizzo email </div>';
+} elseif(strpos($data['mail'], '@') === false || strpos($data['mail'], '.') === false) {
+  echo '<div> C\'è almeno un errore nel tuo indirizzo email </div>';
 } else {
   echo '<div> mail ok </div>';
 }
