@@ -56,14 +56,16 @@
 <?php
 $data = $_GET;
 
-if(empty($data['mail'])){
-  echo '<div> Il campo mail è vuoto </div>';
+if(empty($data['mail']) || empty($data['age'])){
+  echo '<div> Accesso negato</div>';
 } elseif(strlen($data['mail']) < 3) {
-  echo '<div> C\'è almeno un errore nel tuo indirizzo email </div>';
+  echo '<div> Accesso negato </div>';
 } elseif(strpos($data['mail'], '@') === false || strpos($data['mail'], '.') === false) {
-  echo '<div> C\'è almeno un errore nel tuo indirizzo email </div>';
-} else {
-  echo '<div> mail ok </div>';
+  echo '<div> Accesso negato </div>';
+} elseif(!is_numeric ($data['age'])) {
+  echo '<div> Accesso negato </div>';
+}else{
+  echo '<div> Accesso eseguito </div>';
 }
 ?>
 
